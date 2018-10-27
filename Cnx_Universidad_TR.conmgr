@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Cnx_Universidad_TR"
+  DTS:DTSID="{A3084249-8BBC-4C77-B483-FAD580884F5F}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=T4401\LATINOBI;User ID=sa;Initial Catalog=UNIVERSIDAD_TR;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAv4RmueLVMk2pM0VMjPqilgAAAAACAAAAAAAQZgAAAAEAACAAAADTgPVtLYrdd8ail69Gb7623iNh1jEd8AxvEe/ACSboCAAAAAAOgAAAAAIAACAAAAD3TzwvwlKINc4wbyyjkB2cgaISaC/aef05TMTBYWYoW4AAAAC8XcuoyEtvSdFcR3Z020mLK5xsp6JEBLPxpH9YNY5S8nitiyrgmIN8enOhO0WMqI9tiw+akzV4zbNdguQsMhGDOq+x/zQtm7shkFP1iVJhnP0IfbVJY08NEoLZs7VssPul36ZR2SEiV+6ZHvaTlNeF88zWPoBL2T9Im/1CkdMU50AAAACOGX43AoqOr+dzhtXF6tYcPa3N1dC9OfI1YZMSyc6OLfijQmRmmEiyASEVW7LTEsmq9JRlpWrpKI5yeot60ank</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

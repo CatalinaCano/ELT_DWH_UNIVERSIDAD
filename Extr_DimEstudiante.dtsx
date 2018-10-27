@@ -1,0 +1,530 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/15/2018 3:45:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="T4401"
+  DTS:CreatorName="T4401\Usuario"
+  DTS:DTSID="{7B20BAF2-34F4-430B-B5C0-2335C928502D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Extr_DimEstudiante"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{394C5871-BC71-4F9B-9867-1E8F93F716D9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Extr_DimEstudiante"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{59A113DB-30BC-4ADD-8403-DB40981B184B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extr_DimEstudiante">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Extr_DimEstudiante\Extr_DimEstudiante"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tarea Flujo de datos"
+          DTS:DTSID="{D311685F-90ED-4B90-AC4B-4DBCA323BC9D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extr_DimEstudiante"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+                  description="Destino de OLE DB"
+                  name="Destino OLEDB Extr_Dim_Estudiante"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowset">[dbo].[EXTR_DIM_ESTUDIANTE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Connections[OleDbConnection]"
+                      connectionManagerID="{6B27AF69-58D5-4EA9-8965-6778BFBB46A3}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_Universidad_STA]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Inputs[Entrada de destino de OLE DB]"
+                      errorOrTruncationOperation="Insertar"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrada de destino de OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Inputs[Entrada de destino de OLE DB].Columns[identificacion_Estudiante]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="identificacion_Estudiante"
+                          externalMetadataColumnId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Inputs[Entrada de destino de OLE DB].ExternalColumns[identificacion_Estudiante]"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].Columns[identificacion_Estudiante]" />
+                        <inputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Inputs[Entrada de destino de OLE DB].Columns[apellido_Estudiante]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="apellido_Estudiante"
+                          externalMetadataColumnId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Inputs[Entrada de destino de OLE DB].ExternalColumns[apellido_Estudiante]"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].Columns[apellido_Estudiante]" />
+                        <inputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Inputs[Entrada de destino de OLE DB].Columns[nombre_Estudiante]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="nombre_Estudiante"
+                          externalMetadataColumnId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombre_Estudiante]"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].Columns[nombre_Estudiante]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Inputs[Entrada de destino de OLE DB].ExternalColumns[identificacion_Estudiante]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="identificacion_Estudiante" />
+                        <externalMetadataColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Inputs[Entrada de destino de OLE DB].ExternalColumns[apellido_Estudiante]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="apellido_Estudiante" />
+                        <externalMetadataColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombre_Estudiante]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="nombre_Estudiante" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Outputs[Salida de error de destino de OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de destino de OLE DB"
+                      synchronousInputId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Inputs[Entrada de destino de OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+                  description="Origen de OLE DB"
+                  name="Origen OLEDB ESTUDIANTE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+      [identificacion_Estudiante]
+      ,[apellido_Estudiante]
+      ,[nombre_Estudiante]
+  FROM [UNIVERSIDAD_TR].[dbo].[ESTUDIANTE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Variable que contiene el comando SQL para ejecutar."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="Asignaciones entre los parámetros del comando SQL y las variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Connections[OleDbConnection]"
+                      connectionManagerID="{C28D444D-5854-49E8-8D07-B7E482B6DA9B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_Universidad_DHW]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB]"
+                      name="Salida de origen de OLE DB">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].Columns[identificacion_Estudiante]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].ExternalColumns[identificacion_Estudiante]"
+                          length="20"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].Columns[identificacion_Estudiante]"
+                          name="identificacion_Estudiante"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].Columns[apellido_Estudiante]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].ExternalColumns[apellido_Estudiante]"
+                          length="100"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].Columns[apellido_Estudiante]"
+                          name="apellido_Estudiante"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].Columns[nombre_Estudiante]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre_Estudiante]"
+                          length="100"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].Columns[nombre_Estudiante]"
+                          name="nombre_Estudiante"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].ExternalColumns[identificacion_Estudiante]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="identificacion_Estudiante" />
+                        <externalMetadataColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].ExternalColumns[apellido_Estudiante]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="apellido_Estudiante" />
+                        <externalMetadataColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre_Estudiante]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="nombre_Estudiante" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de error de origen de OLE DB]"
+                      isErrorOut="true"
+                      name="Salida de error de origen de OLE DB">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de error de origen de OLE DB].Columns[identificacion_Estudiante]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de error de origen de OLE DB].Columns[identificacion_Estudiante]"
+                          name="identificacion_Estudiante" />
+                        <outputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de error de origen de OLE DB].Columns[apellido_Estudiante]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de error de origen de OLE DB].Columns[apellido_Estudiante]"
+                          name="apellido_Estudiante" />
+                        <outputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de error de origen de OLE DB].Columns[nombre_Estudiante]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de error de origen de OLE DB].Columns[nombre_Estudiante]"
+                          name="nombre_Estudiante" />
+                        <outputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Extr_DimEstudiante\Extr_DimEstudiante.Paths[Salida de origen de OLE DB]"
+                  endId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante.Inputs[Entrada de destino de OLE DB]"
+                  name="Salida de origen de OLE DB"
+                  startId="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE.Outputs[Salida de origen de OLE DB]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extr_DimEstudiante\Truncate Extr_DimEstudiante"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{F5101343-4C07-4398-96B7-CA8BD8AC8787}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate Extr_DimEstudiante"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6B27AF69-58D5-4EA9-8965-6778BFBB46A3}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [UINVERSIDAD_STA].[dbo].[EXTR_DIM_ESTUDIANTE]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extr_DimEstudiante.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{EB02D61D-5DDA-476E-BA00-83C724B9DF14}"
+          DTS:From="Package\Extr_DimEstudiante\Truncate Extr_DimEstudiante"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\Extr_DimEstudiante\Extr_DimEstudiante" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Extr_DimEstudiante\Truncate Extr_DimEstudiante"
+          TopLeft="34,21" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Extr_DimEstudiante\Extr_DimEstudiante"
+          TopLeft="37,86" />
+        <EdgeLayout
+          Id="Package\Extr_DimEstudiante.PrecedenceConstraints[Restricción]"
+          TopLeft="142,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.5,23"
+              Start="0,0"
+              End="-19.5,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.5"
+                    Point2="0,11.5"
+                    Point3="-4,11.5" />
+                  <mssgle:LineSegment
+                    End="-15.5,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.5,11.5"
+                    Point2="-19.5,11.5"
+                    Point3="-19.5,15.5" />
+                  <mssgle:LineSegment
+                    End="-19.5,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="281,182"
+          Size="281,225"
+          Id="Package\Extr_DimEstudiante"
+          TopLeft="299,144" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Extr_DimEstudiante\Extr_DimEstudiante">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="211,42"
+          Id="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE"
+          TopLeft="282,72" />
+        <NodeLayout
+          Size="252,42"
+          Id="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante"
+          TopLeft="252,182" />
+        <EdgeLayout
+          Id="Package\Extr_DimEstudiante\Extr_DimEstudiante.Paths[Salida de origen de OLE DB]"
+          TopLeft="387.5,114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,68"
+              Start="0,0"
+              End="-9.5,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30"
+                    Point2="0,34"
+                    Point3="-4,34" />
+                  <mssgle:LineSegment
+                    End="-5.5,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,34"
+                    Point2="-9.5,34"
+                    Point3="-9.5,38" />
+                  <mssgle:LineSegment
+                    End="-9.5,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extr_DimEstudiante\Extr_DimEstudiante\Origen OLEDB ESTUDIANTE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extr_DimEstudiante\Extr_DimEstudiante\Destino OLEDB Extr_Dim_Estudiante">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,491 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/15/2018 1:51:49 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="T4401"
+  DTS:CreatorName="T4401\Usuario"
+  DTS:DTSID="{9D701FAA-6356-48EF-9665-386686B4F4B2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Extr_DimCurso"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{0D52FF81-CFB8-4DB1-BAC9-95E231A17C02}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Extr_DimCurso"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{1090F855-0C73-476B-9875-806A022CA3BA}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extr_DimCurso">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Extr_DimCurso\Tarea Flujo de datos"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tarea Flujo de datos"
+          DTS:DTSID="{9C5CD8B5-AF89-4D77-B1EA-D68B17EDAA89}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Tarea Flujo de datos"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+                  description="Destino de OLE DB"
+                  name="Destino OLEDB_Extr_Dim_Curso"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowset">[dbo].[EXTR_DIM_CURSO]</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Connections[OleDbConnection]"
+                      connectionManagerID="{6B27AF69-58D5-4EA9-8965-6778BFBB46A3}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_Universidad_STA]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Inputs[Entrada de destino de OLE DB]"
+                      errorOrTruncationOperation="Insertar"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrada de destino de OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Inputs[Entrada de destino de OLE DB].Columns[cod_curso]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="cod_curso"
+                          externalMetadataColumnId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Inputs[Entrada de destino de OLE DB].ExternalColumns[cod_curso]"
+                          lineageId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de origen de OLE DB].Columns[cod_curso]" />
+                        <inputColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Inputs[Entrada de destino de OLE DB].Columns[nombre_curso]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="nombre_curso"
+                          externalMetadataColumnId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombre_curso]"
+                          lineageId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de origen de OLE DB].Columns[nombre_curso]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Inputs[Entrada de destino de OLE DB].ExternalColumns[cod_curso]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="cod_curso" />
+                        <externalMetadataColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombre_curso]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="nombre_curso" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Outputs[Salida de error de destino de OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de destino de OLE DB"
+                      synchronousInputId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Inputs[Entrada de destino de OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+                  description="Origen de OLE DB"
+                  name="OLEDB_Origen_CURSO"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+      [cod_curso]
+      ,[nombre_curso]
+  FROM [UNIVERSIDAD_TR].[dbo].[CURSO]</property>
+                    <property
+                      dataType="System.String"
+                      description="Variable que contiene el comando SQL para ejecutar."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="Asignaciones entre los parámetros del comando SQL y las variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Connections[OleDbConnection]"
+                      connectionManagerID="{A3084249-8BBC-4C77-B483-FAD580884F5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_Universidad_TR]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de origen de OLE DB]"
+                      name="Salida de origen de OLE DB">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de origen de OLE DB].Columns[cod_curso]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de origen de OLE DB].ExternalColumns[cod_curso]"
+                          length="20"
+                          lineageId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de origen de OLE DB].Columns[cod_curso]"
+                          name="cod_curso"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de origen de OLE DB].Columns[nombre_curso]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre_curso]"
+                          length="100"
+                          lineageId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de origen de OLE DB].Columns[nombre_curso]"
+                          name="nombre_curso"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de origen de OLE DB].ExternalColumns[cod_curso]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="cod_curso" />
+                        <externalMetadataColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre_curso]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="nombre_curso" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de error de origen de OLE DB]"
+                      isErrorOut="true"
+                      name="Salida de error de origen de OLE DB">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de error de origen de OLE DB].Columns[cod_curso]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de error de origen de OLE DB].Columns[cod_curso]"
+                          name="cod_curso" />
+                        <outputColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de error de origen de OLE DB].Columns[nombre_curso]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de error de origen de OLE DB].Columns[nombre_curso]"
+                          name="nombre_curso" />
+                        <outputColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Extr_DimCurso\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
+                  endId="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso.Inputs[Entrada de destino de OLE DB]"
+                  name="Salida de origen de OLE DB"
+                  startId="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO.Outputs[Salida de origen de OLE DB]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extr_DimCurso\Truncate Table Extr_DimCurso"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{F13F2B17-124C-4863-821B-F219739C36A9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate Table Extr_DimCurso"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6B27AF69-58D5-4EA9-8965-6778BFBB46A3}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [UINVERSIDAD_STA].[dbo].[EXTR_DIM_CURSO]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extr_DimCurso.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{34F635A5-D8D9-4919-914D-B60E16D02861}"
+          DTS:From="Package\Extr_DimCurso\Truncate Table Extr_DimCurso"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\Extr_DimCurso\Tarea Flujo de datos" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Extr_DimCurso\Tarea Flujo de datos"
+          TopLeft="80,111" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\Extr_DimCurso\Truncate Table Extr_DimCurso"
+          TopLeft="72,13" />
+        <EdgeLayout
+          Id="Package\Extr_DimCurso.PrecedenceConstraints[Restricción]"
+          TopLeft="183.5,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.5,56"
+              Start="0,0"
+              End="-15.5,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="-4,28" />
+                  <mssgle:LineSegment
+                    End="-11.5,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5,28"
+                    Point2="-15.5,28"
+                    Point3="-15.5,32" />
+                  <mssgle:LineSegment
+                    End="-15.5,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="348,208"
+          Size="348,251"
+          Id="Package\Extr_DimCurso"
+          TopLeft="290,143" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Extr_DimCurso\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO"
+          TopLeft="320,57" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso"
+          TopLeft="330,201" />
+        <EdgeLayout
+          Id="Package\Extr_DimCurso\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
+          TopLeft="414,99">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32,102"
+              Start="0,0"
+              End="32,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47"
+                    Point2="0,51"
+                    Point3="4,51" />
+                  <mssgle:LineSegment
+                    End="28,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28,51"
+                    Point2="32,51"
+                    Point3="32,55" />
+                  <mssgle:LineSegment
+                    End="32,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extr_DimCurso\Tarea Flujo de datos\OLEDB_Origen_CURSO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extr_DimCurso\Tarea Flujo de datos\Destino OLEDB_Extr_Dim_Curso">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
